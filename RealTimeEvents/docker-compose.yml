@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+    server:
+        build:
+            context: ./RealTimeEvents.Server
+        container_name: container_realtimeserver
+        ports:
+            - '5000:80'
+            # - '5001:443'
+        image: img_realtimeserver
+
+    client:
+        build:
+            context: ./RealTimeEvents.Client
+        container_name: container_realtimeclient
+        ports:
+            - '5100:80'
+            # - '16001:443'
+        image: img_realtimeclient
+        # depends_on:
+        #     - server
