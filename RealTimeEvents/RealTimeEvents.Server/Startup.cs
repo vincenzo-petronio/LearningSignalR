@@ -19,7 +19,7 @@ namespace RealTimeEvents.Server
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4000")
+                    builder => builder.WithOrigins("http://localhost:5100")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
