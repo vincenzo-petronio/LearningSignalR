@@ -8,10 +8,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["RealTimeEvents.Server/RealTimeEvents.Server.csproj", "RealTimeEvents.Server/"]
-RUN dotnet restore "RealTimeEvents.Server/RealTimeEvents.Server.csproj"
+COPY ["RealTimeEvents.Server.csproj", "./"]
+RUN dotnet restore 
 COPY . .
-WORKDIR "/src/RealTimeEvents.Server"
+#WORKDIR "/src/RealTimeEvents.Server"
 RUN dotnet build "RealTimeEvents.Server.csproj" -c Release -o /app/build
 
 FROM build AS publish

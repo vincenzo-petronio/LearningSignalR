@@ -20,9 +20,9 @@ namespace RealTimeEvents.Server
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            hubContext.Clients.All.SendAsync("getevent", "hello world!");
+            await hubContext.Clients.All.SendAsync("OnEventListener", "hello world!");
             return Ok();
         }
     }

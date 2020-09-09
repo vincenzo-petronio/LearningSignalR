@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Linq;
 
 namespace RealTimeEvents.Server
 {
@@ -27,11 +25,18 @@ namespace RealTimeEvents.Server
 
             services.AddSignalR();
             services.AddControllers();
+            services.AddResponseCompression(options =>
+            {
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseResponseCompression();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -41,14 +46,20 @@ namespace RealTimeEvents.Server
 
             app.UseCors("CorsPolicy");
 
+            //var webSocketOptions = new WebSocketOptions
+            //{
+            //    AllowedOrigins = { "http://localhost:5100" }
+            //};
+            //app.UseWebSockets(webSocketOptions);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<EventsHub>("/events");
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
-                endpoints.MapHub<EventsHub>("/events");
             });
         }
     }
