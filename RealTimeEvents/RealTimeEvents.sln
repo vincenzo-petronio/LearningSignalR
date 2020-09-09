@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeEvents.Server", "RealTimeEvents.Server\RealTimeEvents.Server.csproj", "{0759E8B9-54EC-4C39-892F-F79106FDA2DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeEvents.Server", "RealTimeEvents.Server\RealTimeEvents.Server.csproj", "{0759E8B9-54EC-4C39-892F-F79106FDA2DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeEvents.Client", "RealTimeEvents.Client\RealTimeEvents.Client.csproj", "{7CBAB66E-1240-4602-838B-C34E021B4E2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeEvents.Client", "RealTimeEvents.Client\RealTimeEvents.Client.csproj", "{7CBAB66E-1240-4602-838B-C34E021B4E2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeEvents.DataSource", "RealTimeEvents.DataSource\RealTimeEvents.DataSource.csproj", "{15BCE4EB-8044-4010-ACD1-3257A6F2B447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7CBAB66E-1240-4602-838B-C34E021B4E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CBAB66E-1240-4602-838B-C34E021B4E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CBAB66E-1240-4602-838B-C34E021B4E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15BCE4EB-8044-4010-ACD1-3257A6F2B447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15BCE4EB-8044-4010-ACD1-3257A6F2B447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15BCE4EB-8044-4010-ACD1-3257A6F2B447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15BCE4EB-8044-4010-ACD1-3257A6F2B447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

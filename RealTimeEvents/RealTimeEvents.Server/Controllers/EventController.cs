@@ -25,5 +25,12 @@ namespace RealTimeEvents.Server
             await hubContext.Clients.All.SendAsync("OnEventListener", "hello world!");
             return Ok();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SendEventAsync([FromBody] string msg)
+        {
+            await hubContext.Clients.All.SendAsync("OnEventListener", msg);
+            return Ok();
+        }
     }
 }
